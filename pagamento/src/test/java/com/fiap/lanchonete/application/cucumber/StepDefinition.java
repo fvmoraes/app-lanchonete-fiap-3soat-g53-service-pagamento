@@ -3,8 +3,6 @@ package com.fiap.lanchonete.application.cucumber;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.mockito.ArgumentMatchers.contains;
-import static org.mockito.ArgumentMatchers.matches;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,7 +14,6 @@ import org.springframework.http.MediaType;
 import com.fiap.lanchonete.domain.entity.Pedido;
 import com.fiap.lanchonete.domain.entity.Produto;
 import com.fiap.lanchonete.domain.entity.StatusPagamento;
-import com.fiap.lanchonete.infrastructure.mapper.PedidoRequestMapper;
 import com.fiap.lanchonete.infrastructure.requestsdto.PedidoResponse;
 
 import io.cucumber.java.pt.Dado;
