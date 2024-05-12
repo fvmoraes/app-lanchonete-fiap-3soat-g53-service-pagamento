@@ -1,5 +1,5 @@
 server:
-  port: ${URI_PORT:8080}
+  port: ${URI_PORT:80}
   servlet:
    context-path: /pagamento
 
