@@ -1,4 +1,4 @@
-name: Build and Deploy to Cloud Run
+name: Build Artifact
 
 on:
   push:
@@ -8,13 +8,12 @@ on:
 env:
   PROJECT_ID: fiap-3soat-g53
   GAR_LOCATION: us-central1-docker.pkg.dev/fiap-3soat-g53/service-pagamento
-  SERVICE: service-pagamento-3soat-g53
   IMAGE: service-pagamento
   REGION: us-central1
   TAG: 'latest'
 
 jobs:
-  deploy:
+  build:
     # Add 'id-token' with the intended permissions for workload identity federation
     permissions:
       contents: 'read'
