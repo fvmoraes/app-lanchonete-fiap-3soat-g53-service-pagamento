@@ -7,5 +7,5 @@ RUN mvn clean package -B -Dpmd.skip=true -Dcpd.skip=true -DskipTests
 
 FROM eclipse-temurin:17-jre-focal AS final
 COPY --from=builder /maven-repo/target .
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/service-pagamento-0.0.1-SNAPSHOT.jar"]
