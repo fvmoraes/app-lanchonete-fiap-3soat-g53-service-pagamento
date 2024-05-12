@@ -11,7 +11,7 @@ spring:
     password: ${RABBIT_PASSWORD:guest}
   datasource:
     url: ${CONNECTION_STRING:jdbc:postgresql://localhost:5432/pagamento}
-    password: ${DATABASE_PASSWORD:postgres}
+    password: ${DATABASE_PASSWORD}
     username: ${DATABASE_USERNAME:postgres}
     driver-class-name: org.postgresql.Driver
   jpa:
