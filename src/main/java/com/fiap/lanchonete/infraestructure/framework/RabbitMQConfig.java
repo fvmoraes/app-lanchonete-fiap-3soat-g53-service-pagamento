@@ -20,47 +20,51 @@ public class RabbitMQConfig {
 	private static final String PEDIDO_QUEUE_1 = "pedido-queue";
 
 	private static final String PEDIDO_PAGAMENTO_ROUTING_KEY = "pagamento-para-pedido-routing-key";
+	private static final String PAGAMENTO_DLQ = "pagamento-queue-dlq";
+	private static final String PEDIDO_DLQ = "pedido-queue-dlq";
 
-    @Bean
-    Jackson2JsonMessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
-    
-    @Bean
-    RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(jsonMessageConverter());
-        return rabbitTemplate;
-    }
-    
-	
+	@Bean
+	Jackson2JsonMessageConverter jsonMessageConverter() {
+		return new Jackson2JsonMessageConverter();
+	}
+
+	@Bean
+	RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+		RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+		rabbitTemplate.setMessageConverter(jsonMessageConverter());
+		return rabbitTemplate;
+	}
+
 	@Bean
 	DirectExchange pedidoExchange() {
-		return ExchangeBuilder
-			.directExchange(PEDIDO_EXCHANGE_1)
-			.build();
+		return ExchangeBuilder.directExchange(PEDIDO_EXCHANGE_1).build();
 	}
 
 	@Bean
 	Queue pagamentoQueue() {
-		return QueueBuilder
-			.nonDurable(PAGAMENTO_QUEUE_1)
-			.build();
+		return QueueBuilder.nonDurable(PAGAMENTO_QUEUE_1).withArgument("x-dead-letter-exchange", "")
+				.withArgument("x-dead-letter-routing-key", PAGAMENTO_DLQ).build();
+	}
+
+	@Bean
+	Queue pagamentoDLQ() {
+		return QueueBuilder.nonDurable(PAGAMENTO_DLQ).build();
+	}
+
+	@Bean
+	Queue pedidoDLQ() {
+		return QueueBuilder.nonDurable(PEDIDO_DLQ).build();
 	}
 
 	@Bean
 	Queue pedidoQueue() {
-		return QueueBuilder
-			.nonDurable(PEDIDO_QUEUE_1)
-			.build();
+		return QueueBuilder.nonDurable(PEDIDO_QUEUE_1).withArgument("x-dead-letter-exchange", "")
+				.withArgument("x-dead-letter-routing-key", PEDIDO_DLQ).build();
 	}
 
 	@Bean
 	Binding pedidoBinding(Queue pedidoQueue, DirectExchange pedidoExchange) {
-		return BindingBuilder
-			.bind(pedidoQueue)
-			.to(pedidoExchange)
-			.with(PEDIDO_PAGAMENTO_ROUTING_KEY);
+		return BindingBuilder.bind(pedidoQueue).to(pedidoExchange).with(PEDIDO_PAGAMENTO_ROUTING_KEY);
 	}
 
 }

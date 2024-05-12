@@ -22,7 +22,7 @@ import io.cucumber.java.pt.Quando;
 import io.restassured.response.Response;
 
 public class StepDefinition {
-	private final String ENDPOINT_API = "http://localhost:8280/pagamento/api/v1/pedido";
+	private final String ENDPOINT_API = "http://localhost:8080/pagamento/api/v1/pedido";
 
 	private Response response;
 
