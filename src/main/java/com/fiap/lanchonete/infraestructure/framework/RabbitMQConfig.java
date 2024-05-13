@@ -15,13 +15,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-	private static final String PEDIDO_EXCHANGE_1 = "pagamento-exchange";
-	private static final String PAGAMENTO_QUEUE_1 = "pagamento-queue";
-	private static final String PEDIDO_QUEUE_1 = "pedido-queue";
+	public static final String PEDIDO_EXCHANGE_1 = "pagamento-exchange";
+	public static final String PAGAMENTO_QUEUE_1 = "pagamento-queue";
+	public static final String PEDIDO_QUEUE_1 = "pedido-queue";
 
-	private static final String PEDIDO_PAGAMENTO_ROUTING_KEY = "pagamento-para-pedido-routing-key";
-	private static final String PAGAMENTO_DLQ = "pagamento-queue-dlq";
-	private static final String PEDIDO_DLQ = "pedido-queue-dlq";
+	public static final String PEDIDO_PAGAMENTO_ROUTING_KEY = "pagamento-para-pedido-routing-key";
+	public static final String PAGAMENTO_DLQ = "pagamento-queue-dlq";
+	public static final String PEDIDO_DLQ = "pedido-queue-dlq";
 
 	@Bean
 	Jackson2JsonMessageConverter jsonMessageConverter() {
