@@ -5,7 +5,7 @@ server:
 
 spring:
   rabbitmq:
-    host: ${RABBIT_HOST:albatross.rmq.cloudamqp.com/fcplheqi}
+    host: ${RABBIT_HOST:albatross-01.rmq.cloudamqp.com}
     port: ${RABBIT_PORT:5672}
     username: ${RABBIT_USERNAME:fcplheqi}
     password: ${RABBIT_PASSWORD}
