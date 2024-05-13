@@ -10,7 +10,7 @@ spring:
     username: ${RABBIT_USERNAME:guest}
     password: ${RABBIT_PASSWORD:guest}
   datasource:
-    url: ${CONNECTION_STRING:jdbc:postgresql://fiap-3soat-g53:us-central1:fiap3soatg53:5432/pagamento}
+    url: ${CONNECTION_STRING:jdbc:postgresql://10.0.0.3:5432/pagamento}
     password: ${DATABASE_PASSWORD}
     username: ${DATABASE_USERNAME:postgres}
     driver-class-name: org.postgresql.Driver
