@@ -1,7 +1,5 @@
 server:
   port: ${URI_PORT:8080}
-  servlet:
-   context-path: /pagamento
 
 spring:
   rabbitmq:
@@ -9,6 +7,8 @@ spring:
     port: ${RABBIT_PORT:5672}
     username: ${RABBIT_USERNAME:fcplheqi}
     password: ${RABBIT_PASSWORD}
+    virtual-host: fcplheqi
+    
   datasource:
     url: ${CONNECTION_STRING:jdbc:postgresql://35.222.27.124:5432/pagamento}
     password: ${DATABASE_PASSWORD}
