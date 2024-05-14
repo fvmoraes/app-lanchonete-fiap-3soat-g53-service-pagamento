@@ -7,6 +7,9 @@ build/volumes
 **/.classpath
 **/target
 **\target
+.factory
+.classpath
+*/.classpath
 producao/target/classes
 
 **/factorypath

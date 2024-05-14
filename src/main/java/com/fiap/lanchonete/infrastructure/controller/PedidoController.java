@@ -22,6 +22,9 @@ import com.fiap.lanchonete.domain.entity.event.EventPagamentoAtualizado;
 import com.fiap.lanchonete.infrastructure.mapper.PedidoRequestMapper;
 import com.fiap.lanchonete.infrastructure.requestsdto.PedidoResponse;
 
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("api/v1/pedido")
 public class PedidoController {
@@ -40,17 +43,21 @@ public class PedidoController {
 	}
 
 	@GetMapping
+	@Operation(description = "Busca Pedidos.")
 	public List<PedidoResponse> buscaPedidos() {
 		return pedidoUseCases.buscaPedidos().stream().map(mapper::paraResponse).toList();
 	};
 
 	@PostMapping
+	@Hidden
+	@Operation(description = "This method is used only in tests.")
 	public ResponseEntity<PedidoResponse> RegistraPedido(@RequestBody Pedido pedido) throws JsonProcessingException {
 		return new ResponseEntity<> (mapper.paraResponse(pedidoUseCases.criaPedido(pedido)), HttpStatus.CREATED);
 	};
 	
 	
 	@GetMapping("{id}")
+	@Operation(description = "Busca Pedido pelo ID.")
 	public ResponseEntity<PedidoResponse> buscaPedidosPorId(@PathVariable("id") int id) {
 		try {
 			return new ResponseEntity<>(mapper.paraResponse(pedidoUseCases.buscaPedidoId(id)), HttpStatus.OK);
@@ -62,6 +69,7 @@ public class PedidoController {
 
 	// WEBHOOK
 	@PostMapping("pagamento/mercadopago/{topic}/{id}")
+	@Operation(description = "Simula Pagamento pedido pelo mercado Pago, colcoar no topic 'chargebacks' para cancelar e 'payment' para pagar.")
 	ResponseEntity<String> webHookMercadoPagoSimulator(@PathVariable("topic") String topic, @PathVariable("id") Integer id) {
 		Pedido pedidoAtualizado = pedidoUseCases.atualizaPedidoPagamento(topic, id);
 		EventPagamentoAtualizado eventoPagamentoAtualizado =new EventPagamentoAtualizado(id, pedidoAtualizado.getStatusPagamento());
