@@ -4,7 +4,6 @@ import com.fiap.lanchonete.domain.entity.Pedido;
 import com.fiap.lanchonete.infrastructure.persistence.entity.PedidoEntity;
 
 public class PedidoEntityMapper {
-	ProdutoEntityMapper mapperProduct = new ProdutoEntityMapper();
 	public PedidoEntity paraPedidoEntity(Pedido PedidoObjectDomain) {
 	return new PedidoEntity(PedidoObjectDomain.getId() ,PedidoObjectDomain.getListaProdutos(), PedidoObjectDomain.getStatusPagamento(), PedidoObjectDomain.getValorTotal());
 

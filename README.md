@@ -17,14 +17,37 @@ Os microserviços fazem a comunicação entre si utilizando o RabbitMQ
 
 ### Informações Básicas:
 
-> Para interação básica, você pode usar o Swagger (via navegador) ou o Postman (importando a collection, o arquivo FIAP.postman_collection.json que contém a configuração essencial para iniciar o uso).
+ Para interação básica, você pode usar o Swagger (via navegador) ou o Postman (importando a collection, o arquivo FIAP.postman_collection.json que contém a configuração essencial para iniciar o uso).
 
-> O banco de dados Cassandra e o banco de dados Postgress já estão configuradosdentro do docker-compose prontos para uso  dos três microserviços
+ O banco de dados Cassandra e o banco de dados Postgress já estão configuradosdentro do docker-compose prontos para uso  dos três microserviços
 
-> O projeto possui boas praticas de programação com base em DDD e CleanCode.
+ O projeto possui boas praticas de programação com base em DDD e CleanCode.
 
----
----
+### Banco de Dados:
+
+Esse microserviço utiliza o Postgress quee utiliza a tabelas a seguir:
+
+  +--------------------+
+  |       Pedido       |
+  +--------------------+
+  | id (PK)            |
+  | statusPedido       |
+  | listaProdutosPedido|
+  | statusPagamento    |
+  | valorTotal         |
+  +--------------------+
+
+ 
+
+Essa estrutura de banco de dados possui uma tabela principal: Pedido , representando a entidade PedidoEntity:
+
+    A tabela Pedido armazena informações sobre cada pedido, como seu identificador (id),uma lista de produtos relacionado ao pedido (listaProdutosPedido), status do pagamento (statusPagamento), e o valor total (valorTotal).
+
+    
+A chave primária (PK) de cada tabela está indicada.
+
+
+
 ## Como Usar
 ### O que preciso ter instalado no meu computador?
 > Qualquer sistema operacional Linux ou subsistema Linux, Windows ou MacOs
