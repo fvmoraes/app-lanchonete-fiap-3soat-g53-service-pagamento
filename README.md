@@ -32,6 +32,7 @@ Esse microserviço utiliza o Postgress quee utiliza a tabelas a seguir:
   |       Pedido       |
   
   +--------------------+
+  
   | id (PK)            |
   
   | statusPedido       |
