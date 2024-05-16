@@ -28,21 +28,13 @@ Os microserviços fazem a comunicação entre si utilizando o RabbitMQ
 Esse microserviço utiliza o Postgress quee utiliza a tabelas a seguir:
 
   +--------------------+
-  
   |       Pedido       |
-  
   +--------------------+
-  
   | id (PK)            |
-  
   | statusPedido       |
-  
   | listaProdutosPedido|
-  
   | statusPagamento    |
-  
   | valorTotal         |
-  
   +--------------------+
 
  
