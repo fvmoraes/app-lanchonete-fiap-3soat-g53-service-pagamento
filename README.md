@@ -29,19 +29,19 @@ Esse microserviço utiliza o Postgress quee utiliza a tabela Pedido a seguir:
 
   +--------------------+
   
-  |       Pedido       |
+  |-------Pedido-------|
   
   +--------------------+
   
-  | id (PK)            |
+  | id (PK)------------|
   
-  | statusPedido       |
+  | statusPedido-------|
   
   | listaProdutosPedido|
   
-  | statusPagamento    |
+  | statusPagamento----|
   
-  | valorTotal         |
+  | valorTotal---------|
   
   +--------------------+
 
