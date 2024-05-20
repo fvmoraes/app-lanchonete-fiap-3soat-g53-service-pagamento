@@ -61,7 +61,7 @@ A chave primária (PK) de cada tabela está indicada.
 
 
 ### Message Broker
-> Utilizamos o rabbitMQ, via CloudAMQP para troca de mensagens entre os micosserviços:
+> Utilizamos o rabbitMQ, via CloudAMQP para troca de mensagens entre os microsserviços:
 
 ![](/img/rabbitmq.png)
 
