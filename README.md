@@ -54,7 +54,16 @@ Essa estrutura de banco de dados possui uma tabela principal: Pedido , represent
     
 A chave primária (PK) de cada tabela está indicada.
 
+### Inspeçao de código:
+> Efetuamos a inspeçao de código com o SonarCloud, mantendo a cobertura minima de testes em 80%:
 
+![](/img/sonarcloud.png)
+
+
+### Message Broker
+> Utilizamos o rabbitMQ, via CloudAMQP para troca de mensagens entre os micosserviços:
+
+![](/img/rabbitmq.png)
 
 ## Como Usar
 ### O que preciso ter instalado no meu computador?
@@ -76,11 +85,11 @@ docker-compose up
 
 ---
 ## Mais informações sobre a API
-### Lista de endpoints
-GET http://localhost:8080/api/v1/pedido
-POST localhost:8080/api/v1/pedido/pagamento/mercadopago/payment/1
-DELETE http://localhost:8080/api/v1/produto
-GET http://localhost:8080/api/v1/pedido/{id}
+> Lista de endpoints
+- GET http://localhost:8080/api/v1/pedido
+- POST http://localhost:8080/api/v1/pedido/pagamento/mercadopago/payment/1
+- DELETE http://localhost:8080/api/v1/produto
+- GET http://localhost:8080/api/v1/pedido/{id}
 
 > Swagger
 - GET http://localhost:8080/swagger-ui/index.html
