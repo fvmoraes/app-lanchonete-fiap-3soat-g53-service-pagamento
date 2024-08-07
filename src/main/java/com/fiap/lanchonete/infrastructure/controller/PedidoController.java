@@ -76,7 +76,6 @@ public class PedidoController {
 		template.convertAndSend(PEDIDO_EXCHANGE_1, PEDIDO_PAGAMENTO_ROUTING_KEY, eventoPagamentoAtualizado);
 		
 		if (pedidoAtualizado.getStatusPagamento().equals(StatusPagamento.PAGO)) {
-			
 			return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("Pedido pago com sucesso!");
 		} else {
 			return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("Pedido Cancelado!");
